@@ -7,4 +7,5 @@ data class HomeViewState(
     val isLoading: Boolean = false,
     val bankList: List<BankBranch>? = listOf(),
     val searchedBankList: List<BankBranch>? = listOf(),
+    val searchText: String = "",
 ): IViewState

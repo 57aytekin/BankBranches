@@ -98,7 +98,7 @@ fun HomeScreen(
                 }
                 val coroutineScope = rememberCoroutineScope()
                 Column {
-                    var input by remember { mutableStateOf(TextFieldValue("")) }
+                    var input by remember { mutableStateOf(TextFieldValue(viewStateHome.searchText)) }
                     TopItem(
                         userFullName = userFullName,
                         input = input,

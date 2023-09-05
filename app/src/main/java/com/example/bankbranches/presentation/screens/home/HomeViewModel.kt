@@ -28,6 +28,7 @@ class HomeViewModel@Inject constructor(
         viewModelScope.launch {
             setState {
                 currentState.copy(
+                    searchText = search,
                     searchedBankList = searchedList
                 )
             }
@@ -37,6 +38,7 @@ class HomeViewModel@Inject constructor(
         viewModelScope.launch {
             setState {
                 currentState.copy(
+                    searchText = "",
                     searchedBankList = currentState.bankList
                 )
             }

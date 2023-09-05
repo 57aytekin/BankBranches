@@ -1,9 +1,11 @@
 package com.example.bankbranches.presentation.screens.detail
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -59,7 +61,10 @@ fun BranchDetailScreen(
                     Image(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .fillMaxHeight(0.3f),
+                            .fillMaxHeight(0.3f)
+                            .clickable {
+                                openGoogleMap(context, bankBranch?.adres ?: "")
+                            },
                         painter = painterResource(id = R.drawable.google_map), contentDescription = "",
                         contentScale = ContentScale.Crop
                     )
@@ -80,16 +85,19 @@ fun BranchDetailScreen(
                         desc = bankBranch?.adres ?: ""
                     )
                     OutlinedButtonWithArrow(text = stringResource(id = R.string.txt_get_address)){
-                        val gmmIntentUri =
-                            Uri.parse("geo:0,0?q=${bankBranch?.adres}")
-                        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-                        mapIntent.setPackage("com.google.android.apps.maps")
-                        startActivity(context, mapIntent, null)
+                        openGoogleMap(context, bankBranch?.adres ?: "")
                     }
                 }
             }
         }
     )
+}
+
+fun openGoogleMap(context: Context, address: String){
+    val gmmIntentUri = Uri.parse("geo:0,0?q=${address}")
+    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+    mapIntent.setPackage("com.google.android.apps.maps")
+    startActivity(context, mapIntent, null)
 }
 
 @Composable

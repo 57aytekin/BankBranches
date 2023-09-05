@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BankBranches</string>
+    <string name="msg_no_available_data">Veri bulunamadı!</string>
+    <string name="txt_check_your_connection">Lütfen İnternet Bağlantınızı Kontrol Edin!</string>
+    <string name="txt_try_again">Tekrar Dene</string>
+    <string name="txt_welcome">Hoş Geldin</string>
+    <string name="txt_search_branch">Şube Ara</string>
+    <string name="txt_branch_name">Şube Adı</string>
+    <string name="txt_branch_type">Şube Tipi</string>
+    <string name="txt_branch_code">Şube Kodu</string>
+    <string name="txt_branch_address">Branch Address</string>
+    <string name="txt_get_address">Adres Tarifi Al</string>
+</resources>

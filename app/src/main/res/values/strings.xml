@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BankBranches</string>
+    <string name="msg_no_available_data">No available data!</string>
+    <string name="txt_check_your_connection">Please Check Your Internet Connection!</string>
+    <string name="txt_try_again">Try again</string>
+    <string name="txt_welcome">Welcome</string>
+    <string name="txt_search_branch">Search branch</string>
+    <string name="txt_branch_name">Search branch</string>
+    <string name="txt_branch_type">Branch Type</string>
+    <string name="txt_branch_code">Branch Code</string>
+    <string name="txt_branch_address">Branch Address</string>
+    <string name="txt_get_address">Get Address Direction</string>
+</resources>

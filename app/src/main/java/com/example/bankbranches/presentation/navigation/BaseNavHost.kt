@@ -36,6 +36,7 @@ fun BaseNavHost(
                     bankaSube = bankBranch.bankaSube?.decodeAddress(),
                     enYakinAtm = bankBranch.enYakinAtm?.decodeAddress(),
                     adres = bankBranch.adres?.decodeAddress(),
+                    adresAdi = bankBranch.adresAdi?.decodeAddress(),
                 )
             )
 

@@ -69,12 +69,6 @@ class HomeViewModel@Inject constructor(
         }
     }
 
-    fun sendScreenViewEventForAnalytics() {
-        val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.METHOD, EVENT_TAG_DETAIL)
-        firebaseProvider.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
-    }
-
 
     override fun createInitialState() = HomeViewState()
 

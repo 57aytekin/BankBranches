@@ -35,7 +35,6 @@ import com.example.bankbranches.R
 import com.example.bankbranches.domain.model.BankBranch
 import com.example.bankbranches.presentation.component.NavigationTopAppBar
 import com.example.bankbranches.presentation.component.OutlinedButtonWithArrow
-import com.example.bankbranches.presentation.screens.home.HomeViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,7 +43,7 @@ fun BranchDetailScreen(
     navController: NavController,
     bankBranch: BankBranch?
 ) {
-    val viewModel: HomeViewModel = hiltViewModel()
+    val viewModel: BranchDetailViewModel = hiltViewModel()
     LaunchedEffect(Unit){
         viewModel.sendScreenViewEventForAnalytics()
     }

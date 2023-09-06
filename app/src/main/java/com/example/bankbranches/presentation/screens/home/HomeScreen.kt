@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -59,6 +60,7 @@ fun HomeScreen(
     navController: NavController
 ) {
     val viewModel: HomeViewModel = hiltViewModel()
+    val lazyState = rememberLazyListState()
     val viewStateHome by viewModel.uiState.collectAsState()
     val snackBarHostState = remember { SnackbarHostState() }
     val userFullName = "Aytekin Çömez"
@@ -108,6 +110,9 @@ fun HomeScreen(
                         },
                         onClear = {
                             input = TextFieldValue("")
+                            coroutineScope.launch {
+                                lazyState.scrollToItem(0)
+                            }
                             viewModel.clearSearch()
                         }
                     )
@@ -129,6 +134,7 @@ fun HomeScreen(
                             viewModel.onTriggerEvent(HomeViewEvent.GetBankBranches)
                         }
                         LazyColumn(
+                            state = lazyState,
                             modifier = Modifier.padding(top = 16.dp),
                             content = {
                                 items(viewStateHome.searchedBankList ?: listOf()){ item ->
@@ -185,6 +191,7 @@ fun navigateDetail(
                     adres = URLEncoder.encode(item.adres, StandardCharsets.UTF_8.toString()),
                     enYakinAtm = URLEncoder.encode(item.enYakinAtm, StandardCharsets.UTF_8.toString()),
                     bankaSube = URLEncoder.encode(item.bankaSube, StandardCharsets.UTF_8.toString()),
+                    adresAdi = URLEncoder.encode(item.adresAdi, StandardCharsets.UTF_8.toString()),
                 )
             )
         }
